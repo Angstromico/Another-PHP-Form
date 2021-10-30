@@ -61,7 +61,7 @@
             <div class="button-container">
                 <input type="submit" value="Sendind Mail" name="submit" class="btn btn-primary">
             </div>
-            <?php if(empty($fails)) { ?>
+            <?php if( $a && $b && $c && $d && $e ) { ?>
             <?php 
             $send_to = 'manuesteban1990@gmail.com';
             $subject = "Mail Sending from my form on Heroku";   

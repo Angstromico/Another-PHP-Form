@@ -2,6 +2,7 @@
 
 //Array of Errors
 $fails = [];
+$counter = 0;
 if(isset($_POST['submit'])) {
    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING); 
    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); 
@@ -16,23 +17,38 @@ if(isset($_POST['submit'])) {
    if(empty($name) ) {
       $name = '';
       $fails[0] = 'The name is mandatory in this Form';
-   } 
+      $a = false;
+   } else {
+      $a = true;
+   }
    if(!$email) {
       $email = '';
       $fails[1] = 'You Much Put a Correct Email on this Form';
-   } 
+      $b = false;
+   } else {
+      $b = true;
+   }
    if(strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars) {
       $password = '';
       $fails[2] = "Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character.";
-   } 
+      $c = false;
+   } else {
+      $c = true;
+   }
    if($password2 !== $password) {
       $password2 = '';
       $fails[3] = 'The Password Confirmation Must Mach';
-   } 
+      $d = false;
+   } else {
+      $d = true;
+   }
    if(strlen($message) < 30 ) {
       $message = '';
       $fails[4] = 'The message must be longer than 30 characters';
-   } 
+      $e = false;
+   } else {
+      $e = true;
+   }
    
 }
 require 'index.view.php';
